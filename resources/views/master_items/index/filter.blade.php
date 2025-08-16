@@ -1,31 +1,19 @@
-<div id="filter-container">
-    <h4>Filter</h4>
-    <div class="row">
-        <div class="col-4">
-            <div class="form-group" id="filter-container">
-                <label>Kode</label>
-                <input type="text" class="form-control" id="filter-kode">
-            </div>
-        </div>
-        <div class="col-4">
-            <div class="form-group" id="filter-container">
-                <label>Nama</label>
-                <input type="text" class="form-control" id="filter-nama">
+<form action="{{ route('master-items.index') }}" method="GET">
+    <div class="form-row">
+        <div class="col-2">
+            <div class="form-group">
+                <label for="harga_min">Harga Min</label>
+                <input type="number" class="form-control" id="harga_min" name="harga_min" value="{{ request()->harga_min }}">
             </div>
         </div>
         <div class="col-2">
-            <div class="form-group" id="filter-container">
-                <label>Harga Min</label>
-                <input type="number" class="form-control" id="filter-harga-min">
+            <div class="form-group">
+                <label for="harga_max">Harga Max</label>
+                <input type="number" class="form-control" id="harga_max" name="harga_max" value="{{ request()->harga_max }}">
             </div>
         </div>
         <div class="col-2">
-            <div class="form-group" id="filter-container">
-                <label>Harga Max</label>
-                <input type="number" class="form-control" id="filter-harga-max">
-            </div>
+            <button type="submit" class="btn btn-primary mt-4">Filter</button>
         </div>
     </div>
-    <button class="btn btn-primary mt-1 btn-get-data">Filter</button>
-    <span id="loading-filter" style="display: none;">Loading...</span>
-</div>
+</form>

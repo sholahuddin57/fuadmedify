@@ -9,6 +9,20 @@ class MasterItemsController extends Controller
 {
     public function index()
     {
+        $query = MasterItem::query();
+
+    // Filter harga min
+    if ($request->has('harga_min') && $request->harga_min != '') {
+        $query->where('harga_beli', '>=', $request->harga_min);
+    }
+
+    // Filter harga max
+    if ($request->has('harga_max') && $request->harga_max != '') {
+        $query->where('harga_beli', '<=', $request->harga_max);
+    }
+
+    // Ambil data
+    $items = $query->get();
         return view('master_items.index.index');
     }
 
